@@ -54,4 +54,16 @@ public class TrackerTest {
         Item[] result = tracker.findByName(second.getName());
         assertThat(result[1].getName(), is(second.getName()));
     }
+
+    @Test
+    public void whenTestReplace() {
+        Tracker tracker = new Tracker();
+        Item first = new Item("First");
+        Item repl = new Item();
+        repl.setName("Second");
+        tracker.add(first);
+        int id = first.getId();
+        tracker.replace(id, repl);
+        assertThat(tracker.findById(id).getName(), is("Second"));
+    }
 }
