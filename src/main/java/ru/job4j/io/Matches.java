@@ -15,10 +15,10 @@ public class Matches {
             if (matches >= 1 && matches <= Math.min(3, count)) {
                 count -= matches;
                 System.out.println("Осталось " + count + " спичек");
+                turn = !turn;
             } else {
                 System.out.println(" Вы ввели неправильное значение");
             }
-            turn = !turn;
         }
             if (!turn) {
                 System.out.println("Выиграл первый игрок");
