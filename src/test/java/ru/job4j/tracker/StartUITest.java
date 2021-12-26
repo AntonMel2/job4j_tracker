@@ -1,4 +1,4 @@
-/*package ru.job4j.tracker;
+package ru.job4j.tracker;
 
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
@@ -27,7 +27,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", "1", "New item name", "1"}
+                new String[] {"0", String.valueOf(item.getId()), "New item name", "1"}
         );
         UserAction[] actions = {
                 new EditAction(),
@@ -51,4 +51,4 @@ public class StartUITest {
         new StartUI().init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
-}*/
+}
