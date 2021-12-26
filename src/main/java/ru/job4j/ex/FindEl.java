@@ -16,9 +16,7 @@ public class FindEl {
 
     public static void main(String[] args) {
         try {
-              if (indexOf(new String[]{"Winter", "Autumn"}, "Summer") != -1) {
-                  indexOf(new String[]{"Winter", "Autumn"}, "Summer");
-            }
+            indexOf(new String[]{"Winter", "Autumn"}, "Summer");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
