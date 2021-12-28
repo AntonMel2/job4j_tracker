@@ -33,11 +33,15 @@ public class ValidateInputTest {
     public void whenMonoValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"1", "1", "1"}
+                new String[] {"1", "5", "6"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
+        int selected2 = input.askInt("Enter menu:");
+        assertThat(selected2, is(5));
+        int selected3 = input.askInt("Enter menu:");
+        assertThat(selected3, is(6));
     }
 
    @Test
