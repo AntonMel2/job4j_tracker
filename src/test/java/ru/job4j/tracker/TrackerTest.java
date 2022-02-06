@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
@@ -18,8 +17,8 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item bug = new Item("Bug");
         Item item = tracker.add(bug);
-        List<Item> result = tracker.findById(item.getId());
-        assertThat(result.get(0).getName(), is(item.getName()));
+        Item result = tracker.findById(item.getId());
+        assertThat(result.getName(), is(item.getName()));
     }
 
     @Test
@@ -70,7 +69,7 @@ public class TrackerTest {
         tracker.add(first);
         int id = first.getId();
         tracker.replace(id, repl);
-        assertThat(tracker.findById(id).get(0).getName(), is("Second"));
+        assertThat(tracker.findById(id).getName(), is("Second"));
     }
 
     @Test
@@ -81,6 +80,6 @@ public class TrackerTest {
         tracker.add(bug);
         int id = bug.getId();
         tracker.delete(id);
-        assertThat(tracker.findById(id), is(notNullValue()));
+        assertThat(tracker.findById(id), is(nullValue()));
     }
 }
