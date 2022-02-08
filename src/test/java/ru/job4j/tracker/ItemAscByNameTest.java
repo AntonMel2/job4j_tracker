@@ -25,5 +25,4 @@ public class ItemAscByNameTest  {
         );
         Assert.assertEquals(expected, items);
     }
-
 }
