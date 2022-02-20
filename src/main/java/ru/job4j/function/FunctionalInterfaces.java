@@ -10,12 +10,12 @@ public class FunctionalInterfaces {
     public static void main(String[] args) {
         List<String> list = List.of("one", "two", "three", "four", "five", "six", "seven");
         Map<Integer, String> map = new HashMap<>();
-        BiConsumer<Integer, String> biCon = (s, s1) -> map.put(s, s1);
-        int i = 1;
+        BiConsumer<Integer, String> biCon = (i, s) -> map.put(i, s);
+        int ind = 1;
         for (String num : list) {
-            biCon.accept(i++, num);
+            biCon.accept(ind++, num);
         }
-        BiPredicate<Integer, String> biPred = (s, s1) -> s % 2 == 0 || map.get(s).length() == 4;
+        BiPredicate<Integer, String> biPred = (i, s) -> i % 2 == 0 || s.length() == 4;
         for (Integer index : map.keySet()) {
             if (biPred.test(index, map.get(index))) {
                 System.out.println("key: " + index + " value: " + map.get(index));
